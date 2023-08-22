@@ -4,11 +4,11 @@ import "./app.css";
 
 const App = () => {
   const handleClickStorage = () => {
-    window.location.href = "https://nevtestserver.com/";
+    window.location.href = "https://hongpx.tk/azure-upload";
   };
 
   const handleClickTwenty = () => {
-    window.location.href = "https://hongpx.tk/";
+    window.location.href = "https://hongpx.tk/twenty";
   };
 
   if (

@@ -21,12 +21,12 @@ function App() {
       <BrowserRouter>
         <RenderOnAnonymous>
           <Routes>
-            <Route path="/login" element={<Login />} />
+            <Route path={`${process.env.PUBLIC_URL}/login`} element={<Login />} />
           </Routes>
         </RenderOnAnonymous>
         <RenderOnAuthenticated>
           <Routes>
-            <Route path="/" element={<Home />} exact />
+            <Route path={`${process.env.PUBLIC_URL}`} element={<Home />} exact />
           </Routes>
         </RenderOnAuthenticated>
         {/* <Route element={<PrivateRoute />}> */}
