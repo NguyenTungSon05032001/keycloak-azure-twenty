@@ -1,0 +1,8 @@
+{
+  "realm": "twenty-crm",
+  "auth-server-url": "https://nevtestserver.com/keycloak",
+  "ssl-required": "external",
+  "resource": "twenty-client",
+  "public-client": true,
+  "confidential-port": 0
+}
