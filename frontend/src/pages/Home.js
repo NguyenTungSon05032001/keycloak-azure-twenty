@@ -1,20 +1,22 @@
 import { UPLOAD_PERMISSION, TWENTY_PERMISSION } from "../config/config";
 import UserService from "../services/UserService";
-import { Button } from "antd";
+import { Button, Modal } from "antd";
 import "./app.css";
 import { useCookies } from "react-cookie";
 import { useNavigate } from "react-router-dom";
+import azureIcon from "../images/azure-storage.png";
+import twentyIcon from "../images/twenty.svg";
 
 const App = () => {
   const navigate = useNavigate();
   const [cookies, setCookie, removeCookie] = useCookies();
 
   const handleClickStorage = () => {
-    window.location.href = "https://hongpx.tk/azure-upload";
+    window.location.href = "https://nevtestserver.com/azure-upload";
   };
 
   const handleClickTwenty = () => {
-    window.location.href = "https://hongpx.tk/twenty";
+    window.location.href = "https://nevtestserver.com/twenty";
   };
 
   const onLogout = () => {
@@ -30,22 +32,26 @@ const App = () => {
   ) {
     return (
       <>
-        <div className="flex w-2/5 m-auto flex-row">
-          <div className="flex justify-between items-center w-full p-2 bg-neutral-200 rounded-b-lg">
-            <div>Welcome, {cookies.userName}</div>
+        <Modal
+          title={`Welcome, ${cookies.userName}`}
+          open={true}
+          footer={[
             <Button className="bg-white" onClick={() => onLogout()}>
               Logout
-            </Button>
+            </Button>,
+          ]}
+        >
+          <div className="mt-3 d-flex justify-content-center gap-15 align-items-center">
+            <div className="button-container">
+              <p>
+                <img src={azureIcon} alt="image" height={100} width={100} />
+              </p>
+              <button type="submit" onClick={handleClickStorage}>
+                Redirect to Azure Storage Account
+              </button>
+            </div>
           </div>
-        </div>
-        <div className="mt-3 d-flex justify-content-center gap-15 align-items-center">
-          <h1>Redirect to Azure Storage Upload Page</h1>
-          <div className="button-container">
-            <button type="submit" onClick={handleClickStorage}>
-              Redirect to Storage
-            </button>
-          </div>
-        </div>
+        </Modal>
       </>
     );
   } else if (
@@ -54,22 +60,26 @@ const App = () => {
   ) {
     return (
       <>
-        <div className="flex w-2/5 m-auto flex-row">
-          <div className="flex justify-between items-center w-full p-2 bg-neutral-200 rounded-b-lg">
-            <div>Welcome, {cookies.userName}</div>
+        <Modal
+          title={`Welcome, ${cookies.userName}`}
+          open={true}
+          footer={[
             <Button className="bg-white" onClick={() => onLogout()}>
               Logout
-            </Button>
+            </Button>,
+          ]}
+        >
+          <div className="mt-3 d-flex justify-content-center gap-15 align-items-center">
+            <div className="button-container1">
+              <p>
+                <img src={twentyIcon} alt="image" height={100} width={100} />
+              </p>
+              <button type="submit" onClick={handleClickTwenty}>
+                Redirect to Twenty CRM Web App
+              </button>
+            </div>
           </div>
-        </div>
-        <div className="mt-3 d-flex justify-content-center gap-15 align-items-center">
-          <h1>Redirect to Twenty Web App Page</h1>
-          <div className="button-container">
-            <button type="submit" onClick={handleClickTwenty}>
-              Redirect to Twenty App
-            </button>
-          </div>
-        </div>
+        </Modal>
       </>
     );
   } else if (
@@ -78,45 +88,52 @@ const App = () => {
   ) {
     return (
       <>
-        <div className="flex w-2/5 m-auto flex-row">
-          <div className="flex justify-between items-center w-full p-2 bg-neutral-200 rounded-b-lg">
-            <div>Welcome, {cookies.userName}</div>
+        <Modal
+          title={`Welcome, ${cookies.userName}`}
+          open={true}
+          footer={[
             <Button className="bg-white" onClick={() => onLogout()}>
               Logout
-            </Button>
-          </div>
-        </div>
-
-        <div className="mt-3 d-flex justify-content-center gap-15 align-items-center">
-          <h1>Redirect to Azure Storage Upload Page</h1>
-          <div className="button-container">
-            <button type="submit" onClick={handleClickStorage}>
-              Redirect to Storage
-            </button>
-          </div>
+            </Button>,
+          ]}
+        >
           <div className="mt-3 d-flex justify-content-center gap-15 align-items-center">
-            <h1>Redirect to Twenty Web App Page</h1>
             <div className="button-container">
-              <button type="submit" onClick={handleClickTwenty}>
-                Redirect to Twenty App
+              <p>
+                <img src={azureIcon} alt="image" height={100} width={100} />
+              </p>
+              <button type="submit" onClick={handleClickStorage}>
+                Redirect to Azure Storage Account
               </button>
             </div>
           </div>
-        </div>
+          <div className="mt-3 d-flex justify-content-center gap-15 align-items-center">
+            <div className="button-container1">
+              <p>
+                <img src={twentyIcon} alt="image" height={100} width={100} />
+              </p>
+              <button type="submit" onClick={handleClickTwenty}>
+                Redirect to Twenty CRM Web App
+              </button>
+            </div>
+          </div>
+        </Modal>
       </>
     );
   } else {
     return (
       <>
-        <div className="flex w-2/5 m-auto flex-row">
-          <div className="flex justify-between items-center w-full p-2 bg-neutral-200 rounded-b-lg">
-            <div>Welcome, {cookies.userName}</div>
+        <Modal
+          title={`Welcome, ${cookies.userName}`}
+          open={true}
+          footer={[
             <Button className="bg-white" onClick={() => onLogout()}>
               Logout
-            </Button>
-          </div>
-        </div>
-        <h1>Please Contact to Administrator to add your permission</h1>
+            </Button>,
+          ]}
+        >
+          <h1>Please Contact to Administrator to add your permission</h1>
+        </Modal>
       </>
     );
   }
